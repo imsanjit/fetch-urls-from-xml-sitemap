@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract URLs from xml sitemap</title>
+    
+    <style type="text/css">
+    :root{
+        background-color: #ecf5ff;
+        font-size: 62.5%;
+    }
+
+    *{
+       box-sizing: border-box;
+       font-family: Arial, Helvetica, sans-serif;
+       margin: 0;
+       padding: 0; 
+       color:#333;
+    }
+
+    h1{
+        margin-bottom: 1rem;
+        font-size: 5.4rem;
+        color:#56a5eb;
+
+    }
+
+    .container{
+        width: 100vw;
+        height: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    .container > * {
+        width: 100%;
+    }
+
+    .flex-column{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex-center{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn{
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        width: 20rem;
+        text-align: center;
+        border: 0.1rem solid #56a5eb;
+        margin-bottom: 1rem;
+        text-decoration: none;
+        color: #56a5eb;
+        background-color: white;
+    }
+
+    .btn:hover{
+        cursor: pointer;
+        box-shadow: 0 0.4rem 1.4rem 0 rgb(86, 185, 235, 0.5);
+        transform: translateY(-0.1rem);
+        transition: transform 150ms;
+    }
+
+    .form-input{
+        font-size: 1.8rem;
+        padding: 1rem 0;
+        width: 60rem;
+        text-align: center;
+        border: 0.1rem solid #56a5eb;
+        margin-bottom: 1rem;
+        color: #56a5eb;
+        background-color: white;
+    }
+    p{
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .msg{
+        margin-top: 4rem;
+    }
+    
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1>Fetch URLs from xml sitemap</h1>
+            <p>Enter your xml sitemap url here</p>
+            <form action="/" method="POST" class="flex-center flex-column">
+                <input type="url" class=form-input name='url', placeholder="https://www.abcd.com/sitemap.xml">
+                <button type="submit" class="btn">Submit</button>
+            </form>
+
+            <div class="msg flex-center flex-column">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p> {{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
